@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import DefaultButton from "../UI/DefaultButton";
-import DefaultText from "../UI/DefaultText";
 
 export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <DefaultText style={styles.welcome}>Welcome to Λεπτά!</DefaultText>
-        <DefaultText>"Coming Soon to a Congregation near YOU!"</DefaultText>
+        <Text style={styles.welcome}>Welcome to Λεπτά!</Text>
+        <Text>"Coming Soon to a Congregation near YOU!"</Text>
         <View style={styles.buttonView}>
-          <DefaultButton
+          <Button
             title="Click to see Details"
             onPress={() => this.props.navigation.navigate("Details")}
           />
