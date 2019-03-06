@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 
 export default class HomeScreen extends Component {
   render() {
@@ -11,6 +11,14 @@ export default class HomeScreen extends Component {
           <Button
             title="Click to see Details"
             onPress={() => this.props.navigation.navigate("Details")}
+          />
+          <TextInput
+            style={{
+              height: 40,
+              color: "blue",
+              borderColor: "black",
+              borderWidth: 1
+            }}
           />
         </View>
       </View>
