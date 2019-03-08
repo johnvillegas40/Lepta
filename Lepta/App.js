@@ -3,6 +3,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import HomeScreen from "./src/components/HomeScreen";
 import DetailsScreen from "./src/components/DetailsScreen";
+import LogoTitle from "./src/components/LogoTitle";
 
 const AppNavigator = createStackNavigator(
   {
@@ -10,7 +11,17 @@ const AppNavigator = createStackNavigator(
     Details: DetailsScreen
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Home",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#eee"
+      },
+      headerTintColor: "blue",
+      headerTitleStyle: {
+        fontWeight: "200"
+      },
+      headerRight: <LogoTitle />
+    }
   }
 );
 
