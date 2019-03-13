@@ -1,34 +1,32 @@
-import React, { Component } from "react";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import React from "react";
+import { Navigation } from "react-native-navigation";
+import { Provider } from "react-redux";
+import configureStore from "./src/store/configureStore";
+import Placeholder from "./src/screens/Placeholder";
 
-import HomeScreen from "./src/components/HomeScreen";
-import DetailsScreen from "./src/components/DetailsScreen";
-import LogoTitle from "./src/components/LogoTitle";
+const store = configureStore();
 
-const AppNavigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Details: DetailsScreen
-  },
-  {
-    initialRouteName: "Home",
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: "#eee"
-      },
-      headerTintColor: "blue",
-      headerTitleStyle: {
-        fontWeight: "200"
-      },
-      headerRight: <LogoTitle />
-    }
-  }
+// Register Screens
+
+Navigation.registerComponent(
+  `lepta.Placeholder`,
+  () => props => (
+    <Provider store={store}>
+      <Placeholder {...props} />
+    </Provider>
+  ),
+  () => Placeholder
 );
 
-const AppContainer = createAppContainer(AppNavigator);
+// Start Application
+const startMainApp = () => {
+  Navigation.setRoot({
+    root: {
+      component: {
+        name: "lepta.Placeholder"
+      }
+    }
+  });
+};
 
-export default class App extends Component {
-  render() {
-    return <AppContainer />;
-  }
-}
+export default startMainApp;
